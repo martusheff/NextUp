@@ -10,4 +10,4 @@ We've got a simple solution:
 - Repeat
 
 You'll probably never get your money back otherwise!
-# Let's see who is NextUp!
+# Let's see who's NextUp!
