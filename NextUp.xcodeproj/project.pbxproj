@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF6631D126BA3D86003A6F4D /* NextUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6631D026BA3D86003A6F4D /* NextUpApp.swift */; };
-		DF6631D326BA3D86003A6F4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6631D226BA3D86003A6F4D /* ContentView.swift */; };
+		DF6631D326BA3D86003A6F4D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6631D226BA3D86003A6F4D /* SignInView.swift */; };
 		DF6631D526BA3D88003A6F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6631D426BA3D88003A6F4D /* Assets.xcassets */; };
 		DF6631D826BA3D88003A6F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6631D726BA3D88003A6F4D /* Preview Assets.xcassets */; };
 		DF6631E326BA3D88003A6F4D /* NextUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6631E226BA3D88003A6F4D /* NextUpTests.swift */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		DF6631CD26BA3D86003A6F4D /* NextUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF6631D026BA3D86003A6F4D /* NextUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextUpApp.swift; sourceTree = "<group>"; };
-		DF6631D226BA3D86003A6F4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DF6631D226BA3D86003A6F4D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		DF6631D426BA3D88003A6F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF6631D726BA3D88003A6F4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DF6631D926BA3D88003A6F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				DF6631D026BA3D86003A6F4D /* NextUpApp.swift */,
-				DF6631D226BA3D86003A6F4D /* ContentView.swift */,
+				DF6631FB26BA3D8F003A6F4D /* Views */,
 				DF6631D426BA3D88003A6F4D /* Assets.xcassets */,
 				DF6631D926BA3D88003A6F4D /* Info.plist */,
 				DF6631D626BA3D88003A6F4D /* Preview Content */,
@@ -128,6 +128,14 @@
 				DF6631EF26BA3D88003A6F4D /* Info.plist */,
 			);
 			path = NextUpUITests;
+			sourceTree = "<group>";
+		};
+		DF6631FB26BA3D8F003A6F4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DF6631D226BA3D86003A6F4D /* SignInView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF6631D326BA3D86003A6F4D /* ContentView.swift in Sources */,
+				DF6631D326BA3D86003A6F4D /* SignInView.swift in Sources */,
 				DF6631D126BA3D86003A6F4D /* NextUpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
