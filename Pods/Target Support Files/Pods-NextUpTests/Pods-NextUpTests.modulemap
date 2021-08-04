@@ -1,6 +1,0 @@
-framework module Pods_NextUpTests {
-  umbrella header "Pods-NextUpTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
