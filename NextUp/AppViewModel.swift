@@ -7,16 +7,22 @@
 
 import Foundation
 import FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class AppViewModel: ObservableObject {
     
     let auth = Auth.auth()
+    let database = Firestore.firestore()
     
     @Published var signedIn = false
     
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
+    
+    
+    
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email,
                     password: password) { [weak self] result, error in

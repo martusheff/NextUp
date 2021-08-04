@@ -39,7 +39,7 @@ struct SignInView: View {
                         .background(Color.black)
                         .font(.title.bold())
                         .multilineTextAlignment(.center)
-                        .frame(width: 250)
+                        .frame(width: 300)
                         .padding(.horizontal)
                         .disableAutocorrection(true)
                         .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
@@ -54,7 +54,7 @@ struct SignInView: View {
                         .background(Color.black)
                         .font(.title.bold())
                         .multilineTextAlignment(.center)
-                        .frame(width: 250)
+                        .frame(width: 300)
                         .padding(.horizontal)
                         .disableAutocorrection(true)
                         .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
@@ -84,6 +84,14 @@ struct SignInView: View {
                             .font(.title.bold())
                             .foregroundColor(.white)
                             .padding(.top, 30)
+                        /*
+                        NavigationLink("DATA", destination: FirestorePracticeView())
+                            .frame(width: 130, height: 50)
+                            .background(Color.red)
+                            .font(.title.bold())
+                            .foregroundColor(.white)
+                            .padding(.top, 30)
+ */
                         
                             
                         
