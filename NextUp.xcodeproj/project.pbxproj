@@ -10,7 +10,6 @@
 		637A1B49BC212C002184F3E2 /* Pods_NextUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8615A58143C86894643458 /* Pods_NextUp.framework */; };
 		820CAEF9DFEA685E5A4B891C /* Pods_NextUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC8E0FB4AE12D61B89F7383 /* Pods_NextUpTests.framework */; };
 		DF626EBE26BA4BE10039CB9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF626EBD26BA4BE10039CB9B /* GoogleService-Info.plist */; };
-		DF626EC026BA516E0039CB9B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF626EBF26BA516E0039CB9B /* TestView.swift */; };
 		DF6631D126BA3D86003A6F4D /* NextUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6631D026BA3D86003A6F4D /* NextUpApp.swift */; };
 		DF6631D326BA3D86003A6F4D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6631D226BA3D86003A6F4D /* SignInView.swift */; };
 		DF6631D526BA3D88003A6F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6631D426BA3D88003A6F4D /* Assets.xcassets */; };
@@ -48,7 +47,6 @@
 		C81BAF199A1BAE1F39AC524A /* Pods-NextUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NextUpTests.debug.xcconfig"; path = "Target Support Files/Pods-NextUpTests/Pods-NextUpTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8615A58143C86894643458 /* Pods_NextUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NextUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF626EBD26BA4BE10039CB9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DF626EBF26BA516E0039CB9B /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		DF6631CD26BA3D86003A6F4D /* NextUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF6631D026BA3D86003A6F4D /* NextUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextUpApp.swift; sourceTree = "<group>"; };
 		DF6631D226BA3D86003A6F4D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				DF6631D226BA3D86003A6F4D /* SignInView.swift */,
-				DF626EBF26BA516E0039CB9B /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF626EC026BA516E0039CB9B /* TestView.swift in Sources */,
 				DF6631D326BA3D86003A6F4D /* SignInView.swift in Sources */,
 				DF6631D126BA3D86003A6F4D /* NextUpApp.swift in Sources */,
 			);
