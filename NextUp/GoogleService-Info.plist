@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>472359805451-fgms15frgcju2ba61ujb187754esmkdk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.472359805451-fgms15frgcju2ba61ujb187754esmkdk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBNLstufcFBDGEhhiFxhHjpmJjmmiX_N9c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>472359805451</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dev.andron.NextUp</string>
+	<key>PROJECT_ID</key>
+	<string>nextup-fbf34</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nextup-fbf34.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:472359805451:ios:73c78b10be5dbc2e6f9d0e</string>
+</dict>
+</plist>

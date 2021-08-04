@@ -6,11 +6,44 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+
+class AppViewModel: ObservableObject {
+    
+    let auth = Auth.auth()
+    
+    var isSignedIn: Bool {
+        return auth.currentUser == nil
+    }
+    func signIn(email: String, password: String) {
+        auth.signIn(withEmail: email,
+                    password: password) { result, error in
+            guard result != nil, error == nil else {
+                return
+            }
+            
+            // Success
+        }
+    }
+    
+    func signUp(email: String, password: String) {
+        auth.createUser(withEmail: email,
+                        password: password) { result, error in
+            guard result != nil, error == nil else {
+                return
+            }
+                        
+                        // Success
+            }
+    }
+}
 
 struct SignInView: View {
     
-    @State var phoneNumber = ""
-    @State var pin = ""
+    @State var email = ""
+    @State var password = ""
+    
+    @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
         NavigationView {
@@ -28,10 +61,9 @@ struct SignInView: View {
                         .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                      
                     
-                    TextField("", text: $phoneNumber)
+                    TextField("", text: $email)
                         .foregroundColor(.white)
                         .background(Color.black)
-                        .keyboardType(.numberPad)
                         .font(.title.bold())
                         .multilineTextAlignment(.center)
                         .frame(width: 250)
@@ -42,10 +74,9 @@ struct SignInView: View {
                         .padding(.top, 8.0)
                     
                     
-                    SecureField("", text: $pin)
+                    SecureField("", text: $password)
                         .foregroundColor(.white)
                         .background(Color.black)
-                        .keyboardType(.numberPad)
                         .font(.title.bold())
                         .multilineTextAlignment(.center)
                         .frame(width: 150)
@@ -53,6 +84,10 @@ struct SignInView: View {
                     
                     HStack {
                         Button(action: {
+                            
+                            guard !email.isEmpty, !password.isEmpty else { return }
+                        
+                            viewModel.signIn(email: email, password: password)
                             
                         }, label: {
                             Text("Sign In")
@@ -82,6 +117,8 @@ struct SignInView: View {
                         }).background(Color.black)
                         .padding(.top, 30)
                     }
+                    
+                    NavigationLink("Switch View", destination: TestView())
                     
                     
                     
