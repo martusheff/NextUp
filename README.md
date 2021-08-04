@@ -11,4 +11,4 @@ We've got a simple solution:
 
 You'll probably never get your money back otherwise!
 # Let's see who's NextUp!
-![](SignIn.PNG | width = 300)
+![](SignIn.PNG | width=300)
