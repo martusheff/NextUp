@@ -118,7 +118,7 @@ struct SignInView: View {
                         .padding(.top, 30)
                     }
                     
-                    NavigationLink("Switch View", destination: TestView())
+                   
                     
                     
                     
