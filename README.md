@@ -9,4 +9,4 @@ We've got a simple solution:
 - Let us decide who pays next based on who has contributed the least!
 - Repeat
 You'll probably never get your money back otherwise!
-#Let's see who is NextUp!
+# Let's see who is NextUp!
