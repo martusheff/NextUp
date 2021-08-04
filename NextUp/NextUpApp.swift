@@ -17,7 +17,7 @@ struct NextUpApp: App {
     var body: some Scene {
         WindowGroup {
             let viewModel = AppViewModel()
-            SignInView()
+            ContentView()
                 .environmentObject(viewModel)
         }
     }

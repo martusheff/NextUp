@@ -8,35 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 
-class AppViewModel: ObservableObject {
-    
-    let auth = Auth.auth()
-    
-    var isSignedIn: Bool {
-        return auth.currentUser == nil
-    }
-    func signIn(email: String, password: String) {
-        auth.signIn(withEmail: email,
-                    password: password) { result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            // Success
-        }
-    }
-    
-    func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email,
-                        password: password) { result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-                        
-                        // Success
-            }
-    }
-}
+
 
 struct SignInView: View {
     
@@ -53,13 +25,14 @@ struct SignInView: View {
                     .scaledToFit()
                     .frame(width: 300)
                     .padding(.bottom, 32)
+                    
                 
                 
                 
                 VStack {
-                    Text("Phone Number")
+                    Text("E-Mail")
                         .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                     
+                    
                     
                     TextField("", text: $email)
                         .foregroundColor(.white)
@@ -68,8 +41,10 @@ struct SignInView: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 250)
                         .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                     
-                    Text("Pin")
+                    Text("Password")
                         .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                         .padding(.top, 8.0)
                     
@@ -79,60 +54,69 @@ struct SignInView: View {
                         .background(Color.black)
                         .font(.title.bold())
                         .multilineTextAlignment(.center)
-                        .frame(width: 150)
+                        .frame(width: 250)
                         .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                     
                     HStack {
                         Button(action: {
                             
                             guard !email.isEmpty, !password.isEmpty else { return }
-                        
+                            
                             viewModel.signIn(email: email, password: password)
                             
                         }, label: {
                             Text("Sign In")
                                 .font(.title).bold()
-                                .padding(6)
+                                .frame(width: 130, height: 50)
                                 .foregroundColor(.white)
                                 .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                                 .background(Color.red)
                             
-                                
+                            
                         }).background(Color.black)
                         .padding(.top, 30)
                         
+                        NavigationLink("SIGN UP", destination: SignUpView())
+                            .frame(width: 130, height: 50)
+                            .background(Color.red)
+                            .font(.title.bold())
+                            .foregroundColor(.white)
+                            .padding(.top, 30)
+                        
+                            
                         
                         
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Sign Up")
-                                .font(.title).bold()
-                                .padding(6)
-                                .foregroundColor(.white)
-                                .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                                .background(Color.red)
-                            
-                                
-                        }).background(Color.black)
-                        .padding(.top, 30)
+                        
+                        
+                        /*
+                         Button(action: {
+                         
+                         }, label: {
+                         Text("Sign Up")
+                         .font(.title).bold()
+                         .padding(6)
+                         .foregroundColor(.white)
+                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                         .background(Color.red)
+                         
+                         
+                         }).background(Color.black)
+                         .padding(.top, 30)
+                         */
+                        
                     }
-                    
-                   
-                    
-                    
-                    
-                    
-                    
                     Spacer()
                 }
             }
-        
-            
-            
         }
     }
+    
 }
+
+
+
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
