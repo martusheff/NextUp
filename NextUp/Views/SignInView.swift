@@ -18,7 +18,7 @@ struct SignInView: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
-        NavigationView {
+       
             VStack{
                 Image("NextUp")
                     .resizable()
@@ -107,13 +107,16 @@ struct SignInView: View {
                          */
                         
                     }
-                    Spacer()
+                   Spacer()
                 }
+                
             }
+        
         }
+        
     }
     
-}
+
 
 
 

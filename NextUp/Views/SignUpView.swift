@@ -11,91 +11,126 @@ struct SignUpView: View {
     
     @State var email = ""
     @State var password = ""
+    @State var username = ""
+    @State var dob = Date()
+    
     
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
-        VStack{
-            Image("NextUp")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 300)
-                .padding(.bottom, 32)
-               
+        ScrollView {
+            VStack{
+                Image("NextUp")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300)
+                    .padding(.bottom, 32)
+                   
 
-            
-            
-            
-            VStack {
-                Text("E-Mail")
-                    .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                 
                 
-                TextField("", text: $email)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.title.bold())
-                    .multilineTextAlignment(.center)
-                    .frame(width: 250)
-                    .padding(.horizontal)
-                    .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 
-                Text("Password")
-                    .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                    .padding(.top, 8.0)
-                
-                
-                SecureField("", text: $password)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.title.bold())
-                    .multilineTextAlignment(.center)
-                    .frame(width: 250)
-                    .padding(.horizontal)
-                    .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                
-                HStack {
-                    Button(action: {
-                        
-                        guard !email.isEmpty, !password.isEmpty else { return }
-                        
-                        viewModel.signUp(email: email, password: password)
-                        
-                    }, label: {
-                        Text("Sign Up")
-                            .font(.title).bold()
-                            .frame(width: 130, height: 50)
-                            .foregroundColor(.white)
-                            .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                            .background(Color.red)
-                        
-                        
-                    }).background(Color.black)
-                    .padding(.top, 30)
+                VStack {
+                    Text("User Name")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                     
                     
+                    TextField("", text: $username)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    Text("Date of Birth")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                     
                     
-                    /*
-                     Button(action: {
-                     
-                     }, label: {
-                     Text("Sign Up")
-                     .font(.title).bold()
-                     .padding(6)
-                     .foregroundColor(.white)
-                     .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                     .background(Color.red)
-                     
-                     
-                     }).background(Color.black)
-                     .padding(.top, 30)
-                     */
+                    HStack {
+                        DatePicker(
+                            "",
+                            selection: $dob
+                        ).datePickerStyle(WheelDatePickerStyle())
+
+                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaledToFit()
+                        .padding()
+                    }.padding()
                     
+                    
+                    Text("E-Mail")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    
+                    
+                    TextField("", text: $email)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    Text("Password")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                        .padding(.top, 8.0)
+                    
+                    
+                    SecureField("", text: $password)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    HStack {
+                        Button(action: {
+                            
+                            guard !email.isEmpty, !password.isEmpty else { return }
+                            
+                            viewModel.signUp(email: email, password: password)
+                            
+                        }, label: {
+                            Text("Sign Up")
+                                .font(.title).bold()
+                                .frame(width: 130, height: 50)
+                                .foregroundColor(.white)
+                                .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                                .background(Color.red)
+                            
+                            
+                        }).background(Color.black)
+                        .padding(.top, 30)
+                        
+                        
+                        
+                        
+                        /*
+                         Button(action: {
+                         
+                         }, label: {
+                         Text("Sign Up")
+                         .font(.title).bold()
+                         .padding(6)
+                         .foregroundColor(.white)
+                         .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                         .background(Color.red)
+                         
+                         
+                         }).background(Color.black)
+                         .padding(.top, 30)
+                         */
+                        
+                    }
+              
                 }
-                Spacer()
             }
         }
     }
