@@ -6,9 +6,19 @@
 //
 
 import Foundation
-import Firebase
 
 
-class UserViewModel: ObservableObject {
-    let use
+class UserViewModel : ObservableObject {
+    
+    struct User {
+        var username: String {
+            get {
+                return UserDefaults.standard.object(forKey: "username") as? String ?? ""
+            }
+            set(newValue) {
+                UserDefaults.standard.set(newValue, forKey: "username")
+            }
+        }
+    }
 }
+

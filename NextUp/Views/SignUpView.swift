@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct SignUpView: View {
     
     @State var email = ""
@@ -16,7 +18,9 @@ struct SignUpView: View {
     @State var username = ""
     
     
+    
     @EnvironmentObject var viewModel: AppViewModel
+
     
     var body: some View {
         
@@ -24,8 +28,8 @@ struct SignUpView: View {
             Image("NextUp")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 300)
-                .padding(.bottom, 32)
+                .frame(width: 350)
+
             
             
             
@@ -109,9 +113,14 @@ struct SignUpView: View {
                     
                     Button(action: {
                         
+                        
+                        var currUser = User()
+                        currUser.username = username
+                        
                         guard !email.isEmpty, !password.isEmpty else { return }
                         viewModel.signUp(email: email, password: password)
                         writeData(name: name, age: age, email: email, username: username)
+                        
                         
                         
                         
@@ -149,10 +158,12 @@ struct SignUpView: View {
                      */
                     
                 }
-                
+               
             }
+            Spacer()
             
         }
+        Spacer()
     }
     
     func writeData(name: String, age: String, email: String, username: String) {
@@ -170,6 +181,17 @@ struct SignUpView: View {
         }
 }
 
+struct User: Codable {
+    
+    var username: String {
+        get {
+            return UserDefaults.standard.object(forKey: "username") as? String ?? ""
+        }
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: "username")
+        }
+    }
+}
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
