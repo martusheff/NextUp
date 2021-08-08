@@ -67,6 +67,16 @@ struct SignInView: View {
                             
                             viewModel.signIn(email: email, password: password)
                             
+                            var currUser = User()
+                            currUser.email = email
+                            currUser.name = ""
+                            currUser.age = ""
+                            currUser.username = ""
+                            currUser.id = ""
+                            
+                            
+                            
+                            
                         }, label: {
                             Text("Sign In")
                                 .font(.title).bold()

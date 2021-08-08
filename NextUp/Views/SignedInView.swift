@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct SignedInView: View {
+    
     @EnvironmentObject var viewModel: AppViewModel
     @State var width: CGFloat = 0
     @State var cutyaCounter = 0
     @State var enableEgg = false
     @State var isAndron: CGFloat = 0
+    @State var name = ""
+    
+    let userViewModel: UserViewModel = UserViewModel()
     
     
     var body: some View {
@@ -24,16 +28,26 @@ struct SignedInView: View {
                 .frame(width: 300)
                 .padding(.bottom, 32)
             
-            Text("You are now Signed In")
-                .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+            
+            Text("Welcome " +  name + "\nYou are now Signed In")
+                .font(.title3).bold().textCase(.uppercase).multilineTextAlignment(.center)
+            
+
             
             Button(action: {
                 let id = viewModel.auth.currentUser?.uid
-                let username = "\(User().username)"
+                let email = "\(User().email)"
+                let docRef = viewModel.database.collection("users").document("\(email)")
                 
-                viewModel.database.collection("users").document(username).updateData(["id": id!])
+            
                 
-                if viewModel.auth.currentUser?.uid == "SmbdtMy7uKZrZb7IpAMZ9yNzcTu1" {
+                viewModel.database.collection("users").document("\(email)").updateData(["id": id!])
+                userViewModel.updateData(email: User().email)
+                name = User().name
+                
+                
+                
+                if viewModel.auth.currentUser?.uid == "GFlUuP1ad8ShVaqjuPXLOPJ3CMO2" {
                     enableEgg = true
                     isAndron = 320
                 }
@@ -62,6 +76,33 @@ struct SignedInView: View {
                 
             }).background(Color.black)
             .padding(.top, 10)
+            
+            Button(action: {
+                userViewModel.updateData(email: User().email)
+                
+                name = User().name
+            }, label: {
+                Text("My Info")
+                    .font(.title).bold()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.white)
+                    .textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    .background(Color.red)
+                
+                
+                
+                
+            }).background(Color.black)
+            .padding(.top, 10)
+            
+            NavigationLink("PROFILE", destination: UserAccountView())
+                .frame(width: 150, height: 50)
+                .background(Color.red)
+                .font(.title.bold())
+                .foregroundColor(.white)
+                .padding(.top, 10)
+            
+            
             
             Button(action: {
                 if self.width == 0 {
@@ -110,6 +151,7 @@ struct SignedInView: View {
         }
     }
 }
+
 
 struct SignedInView_Previews: PreviewProvider {
     static var previews: some View {

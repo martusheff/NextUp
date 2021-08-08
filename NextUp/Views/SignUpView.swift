@@ -20,79 +20,82 @@ struct SignUpView: View {
     
     
     @EnvironmentObject var viewModel: AppViewModel
-
+    
     
     var body: some View {
         
         VStack{
-            Image("NextUp")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 350)
-
-            
-            
-            
-            
-            
-            VStack {
-                Text("Name")
-                    .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+            Group {
+                Image("NextUp")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 350)
                 
                 
-                TextField("", text: $name)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.title.bold())
-                    .multilineTextAlignment(.center)
-                    .frame(width: 250)
-                    .padding(.horizontal)
-                    .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                    .padding(.bottom, 25)
-            
-               
                 
                 
-                TextField("UserName", text: $username)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.title.bold())
-                    .multilineTextAlignment(.center)
-                    .frame(width: 250)
-                    .padding(.horizontal)
-                    .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                
-                Text("Age")
-                    .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
-                
-                TextField("", text: $age)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.title.bold())
-                    .keyboardType(.numberPad)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 250)
-                    .padding(.horizontal)
-                    .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 
                 
-                Text("E-Mail")
-                    .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                 
-                
-                TextField("", text: $email)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .font(.title.bold())
-                    .multilineTextAlignment(.center)
-                    .frame(width: 250)
-                    .padding(.horizontal)
-                    .disableAutocorrection(true)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                
+                VStack {
+                    Text("Name")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/).padding(.top, 5)
+                    
+                    
+                    TextField("", text: $name)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    
+                    
+                    Text("Username")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    
+                    TextField("", text: $username)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    Text("Age")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    
+                    TextField("", text: $age)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .keyboardType(.numberPad)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    
+                    Text("E-Mail")
+                        .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                    
+                    
+                    TextField("", text: $email)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .font(.title.bold())
+                        .multilineTextAlignment(.center)
+                        .frame(width: 250)
+                        .padding(.horizontal)
+                        .disableAutocorrection(true)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                }
                 Text("Password")
                     .font(.title3).bold().textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                     .padding(.top, 8.0)
@@ -115,7 +118,7 @@ struct SignUpView: View {
                         
                         
                         var currUser = User()
-                        currUser.username = username
+                        currUser.email = email
                         
                         guard !email.isEmpty, !password.isEmpty else { return }
                         viewModel.signUp(email: email, password: password)
@@ -158,7 +161,7 @@ struct SignUpView: View {
                      */
                     
                 }
-               
+                
             }
             Spacer()
             
@@ -169,29 +172,20 @@ struct SignUpView: View {
     func writeData(name: String, age: String, email: String, username: String) {
         
         
-        viewModel.database.collection("users").document(username)
+        viewModel.database.collection("users").document(email)
             
             .setData(   ["name": name,
                          "username": username,
                          "age": age,
                          "email":email])
         
-       
-            
-        }
-}
-
-struct User: Codable {
-    
-    var username: String {
-        get {
-            return UserDefaults.standard.object(forKey: "username") as? String ?? ""
-        }
-        set(newValue) {
-            UserDefaults.standard.set(newValue, forKey: "username")
-        }
+        
+        
     }
 }
+
+
+
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
