@@ -7,7 +7,7 @@ We've got a simple solution:
 - Add your friends.
 - Kickoff your purchases (or use our randomizer to start).
 - Let us decide who pays next based on who has contributed the least!
-- Repeat
+- Repeat!
 
 You'll probably never get your money back otherwise!
 # Let's see who's NextUp!
